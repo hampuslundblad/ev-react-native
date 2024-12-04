@@ -37,7 +37,15 @@ If everything is set up _correctly_, you should see your new app running in your
 
 This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
 
-### Thoughts on used external packages
+# Testing
+
+Jest is used for unit testing, run the following command to run all tests.
+
+```bash
+npm run start
+```
+
+# Thoughts on used external packages
 
 **_Tanstack query_** I'm most familiar with tanstack query and therefore decided to use it for this project as well. Other alternatives would have been axios or node fetch however tanstack query provides a lot of nice functionality such as caching and easy retrieval if a query is in a loading state or error state. Given more time this would be possible to implement myself.
 
