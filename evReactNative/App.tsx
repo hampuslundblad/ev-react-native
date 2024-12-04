@@ -4,15 +4,13 @@ import { SafeAreaView } from "react-native";
 // Used for debugging network logs since react-native debugger doesn't support it
 import "./ReactotronConfig.js";
 
-import {
-  onlineManager,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
-import NetInfo from "@react-native-community/netinfo";
-import SearchBooks from "./src/views/SearchBooks";
+import { onlineManager, QueryClient } from "@tanstack/react-query";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persister";
+import NetInfo from "@react-native-community/netinfo";
+import NetworkStatus from "./src/components/NetworkStatus";
+import SearchBooks from "./src/views/SearchBooks";
 
 const queryClient = new QueryClient();
 
@@ -31,11 +29,14 @@ function App(): React.JSX.Element {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <PersistQueryClientProvider
+      client={queryClient}
+      persistOptions={{ persister: asyncPersist }}>
       <SafeAreaView>
+        <NetworkStatus />
         <SearchBooks />
       </SafeAreaView>
-    </QueryClientProvider>
+    </PersistQueryClientProvider>
   );
 }
 
