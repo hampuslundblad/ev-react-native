@@ -9,6 +9,8 @@ const NetworkStatus: FC<NetworkStatusProps> = ({}) => {
   useEffect(() => {
     setIsOnline(onlineManager.isOnline());
   }, []);
+  console.log(onlineManager.isOnline());
+
   const [isOnline, setIsOnline] = React.useState(false);
   if (isOnline) {
     return null;

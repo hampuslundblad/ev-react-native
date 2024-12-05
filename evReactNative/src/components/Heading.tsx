@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, TextProps } from "react-native";
 
-type HeadingProps = {
+interface HeadingProps extends TextProps {
   size: "small" | "medium" | "large";
   children: React.ReactNode;
-};
+}
 
-const Heading = ({ size, children }: HeadingProps) => {
+const Heading = ({ size, children, ...textProps }: HeadingProps) => {
   const getFontSize = () => {
     switch (size) {
       case "small":
@@ -20,7 +20,11 @@ const Heading = ({ size, children }: HeadingProps) => {
     }
   };
 
-  return <Text style={getFontSize()}>{children}</Text>;
+  return (
+    <Text style={getFontSize()} {...textProps}>
+      {children}
+    </Text>
+  );
 };
 
 const styles = StyleSheet.create({
