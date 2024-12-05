@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react-native";
 import BookDetailsScreen from "../src/screens/BookDetailsScreen";
 import { RouteProp } from "@react-navigation/native";
-import { expect, it, describe, jest, beforeEach } from "@jest/globals";
+import { expect, it, describe, jest } from "@jest/globals";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { BookDetailsScreenProps, StackParamList } from "../src/types/routes";
 
