@@ -50,3 +50,13 @@ npm run start
 **_Tanstack query_** I'm most familiar with tanstack query and therefore decided to use it for this project as well. Other alternatives would have been axios or node fetch however tanstack query provides a lot of nice functionality such as caching and easy retrieval if a query is in a loading state or error state. Given more time this would be possible to implement myself.
 
 **_reactotron_** This one was needed for checking the network logs since react-native debugger currently doesn't support it but it seems like a feature that's being worked on. Ideally the config etc shouldn't be loaded in a production environment.
+
+# Other thoughts
+
+- It's a slight anti-pattern to have files named xxxScreen.tsx in the /screens/ folder. However it helps me easier discern between screens and components.
+
+- It's not optimal to handle the error messages within the useBooks hook. Instead they should be broken out perhaps to a seperate component or json file if translations are used.
+
+- The tests would need some cleanup, for example createTestProps is duplicated on both screen tests,
+
+- The testing could be further expanded by e2e tests using something like Detox. This app is rather simple and therefore jest is fine here, however with larger applications the amount of mocking and extra working required to test more complicated features then and e2e framework would be better.
