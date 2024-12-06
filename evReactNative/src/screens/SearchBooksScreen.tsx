@@ -22,7 +22,6 @@ function SearchBooksScreen({ navigation }: SearchBooksScreenProps) {
   const handleOnPress = (book: Book) => {
     navigation.navigate("BookDetails", { book: book });
   };
-  console.log(isError, isLoading, booksData);
   return (
     <SafeAreaView style={styles.wrapper}>
       <Heading size={"large"}> Explore new books! </Heading>
