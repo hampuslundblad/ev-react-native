@@ -77,7 +77,7 @@ npm run lint
 
 - The tests would need some cleanup, for example createTestProps is duplicated on both screen tests,
 
-- The testing could be further expanded by e2e tests using something like Detox. This app is rather simple and therefore jest is fine here, however with larger applications the amount of mocking and extra working required to test more complicated features then and e2e framework would be better.
+- The testing could be further expanded by e2e tests using something like Detox. This app is rather simple and therefore jest is fine here, however with larger applications the amount of mocking and extra working required to test more complicated features will grow, and e2e framework would be better.
 
 - The styling of the app is very simple, however to I couldn't spend too much time on that aspect.
 
