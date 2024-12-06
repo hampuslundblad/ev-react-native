@@ -83,4 +83,4 @@ npm run lint
 
 # Known issues
 
-- I encountered a bug where on the ios app, when I searched no result or notification showed up. It seems to happen when you disconnect from the internet and then reconnect again. Cached results shows up but not new ones even though you're connected to the internet. I have been unable to resolve the bug.
+- I encountered a bug where on the ios app, when I searched no result or notification showed up. It seems to happen when you disconnect from the internet and then reconnect again. Cached results shows up but not new ones even though you're connected to the internet. I have been unable to resolve the bug. My suspicion is that's it's related to tanstack query.
