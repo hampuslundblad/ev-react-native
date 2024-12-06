@@ -22,16 +22,7 @@ const asyncPersist = createAsyncStoragePersister({
   storage: AsyncStorage,
   throttleTime: 3000,
 });
-
 function App() {
-  useEffect(() => {
-    onlineManager.setEventListener(setOnline => {
-      return NetInfo.addEventListener(state => {
-        setOnline(!!state.isConnected);
-      });
-    });
-  }, []);
-
   return (
     <PersistQueryClientProvider
       client={queryClient}

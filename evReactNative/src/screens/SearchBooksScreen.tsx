@@ -22,7 +22,7 @@ function SearchBooksScreen({ navigation }: SearchBooksScreenProps) {
   const handleOnPress = (book: Book) => {
     navigation.navigate("BookDetails", { book: book });
   };
-
+  console.log(isError, isLoading, booksData);
   return (
     <SafeAreaView style={styles.wrapper}>
       <Heading size={"large"}> Explore new books! </Heading>
@@ -32,8 +32,10 @@ function SearchBooksScreen({ navigation }: SearchBooksScreenProps) {
         onChangeText={setSearchText}
       />
       {isError && <Notification type="error" message={error.message} />}
-      {isLoading && <ActivityIndicator testID="activity-indicator" />}
-      {!isLoading && booksData && booksData.books.length === 0 && (
+      {isLoading && (
+        <ActivityIndicator testID="activity-indicator" color="#000" />
+      )}
+      {!isLoading && !isError && booksData && booksData.books.length === 0 && (
         <Notification
           type="info"
           message={`No books found named ${searchText}`}

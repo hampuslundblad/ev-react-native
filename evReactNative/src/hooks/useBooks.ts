@@ -29,7 +29,6 @@ export const fetchBooks = async (
 ): Promise<GetBooksResponse | undefined> => {
   const fieldsToFetch = "key,title,author_name,first_publish_year,subtitle";
   const bookLimit = 20;
-
   try {
     const response = await BooksClient.get("/search.json", {
       signal: newAbortSignal(FIVE_SECONDS), // This will be effectivly 10 seconds since we retry once,
@@ -50,7 +49,6 @@ export const fetchBooks = async (
       books: books,
     };
   } catch (error) {
-    console.log(error);
     if (error instanceof AxiosError && error instanceof CanceledError) {
       throw new Error("There seems to be an issue with your connection.");
     }

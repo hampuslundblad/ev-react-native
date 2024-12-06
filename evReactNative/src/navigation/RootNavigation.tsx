@@ -2,7 +2,6 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { FC } from "react";
-import NetworkStatus from "../components/NetworkStatus";
 import BookDetailsScreen from "../screens/BookDetailsScreen";
 import SearchBooksScreen from "../screens/SearchBooksScreen";
 import { StackParamList } from "../types/routes";
@@ -14,10 +13,14 @@ const Stack = createNativeStackNavigator<StackParamList>();
 const RootNavigation: FC<rootNavigationProps> = ({}) => {
   return (
     <NavigationContainer>
-      <NetworkStatus />
       <Stack.Navigator
         initialRouteName="SearchBooks"
-        screenOptions={{ headerShown: false }}>
+        screenOptions={{
+          headerShown: true,
+          headerBackButtonMenuEnabled: false,
+          headerStyle: { backgroundColor: "lightblue" },
+          contentStyle: { backgroundColor: "lightblue" },
+        }}>
         <Stack.Screen name="SearchBooks" component={SearchBooksScreen} />
         <Stack.Screen name="BookDetails" component={BookDetailsScreen} />
       </Stack.Navigator>
